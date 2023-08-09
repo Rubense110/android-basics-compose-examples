@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">appTareas_codelab</string>
+    <string name="title_text">All tasks completed</string>
+    <string name="descr_text">Nice work!</string>
 </resources>
