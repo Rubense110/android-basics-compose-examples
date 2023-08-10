@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">AppBussinessCard_codelab</string>
+    <string name="name_text">Ruben Jimenez</string>
+    <string name="descr_text">Android Developer Extraordinaire</string>
+</resources>
