@@ -1,8 +1,14 @@
 <resources>
     <string name="app_name">AppGallery_codelab</string>
+
     <string name="bloom_img_descr">Bloom</string>
     <string name="stella_img_descr">Stella</string>
     <string name="tecna_img_descr">Tecna</string>
     <string name="musa_img_descr">Musa</string>
+
+    <string name="bloom_descr">valiente, poderosa, compasiva</string>
+    <string name="stella_descr">elegante, optimista, carismática</string>
+    <string name="tecna_descr"> inteligente, lógica, científica</string>
+    <string name="musa_descr">creativa, musical, compasiva</string>
 
 </resources>

@@ -25,6 +25,10 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -69,8 +73,38 @@ fun GalleryApp() {
 }
 @Composable
 fun Gallery(modifier : Modifier = Modifier) {
-    var imageResource = R.drawable.bloom
-    var contentDescription = R.string.bloom_img_descr
+    var status by remember { mutableStateOf(0) }
+
+
+    var imageResource = when (status) {
+        0 -> R.drawable.bloom
+        1 -> R.drawable.stella
+        2 -> R.drawable.musa
+        else -> R.drawable.tecna
+    }
+
+    var contentDescription = when (status) {
+        0 -> R.string.bloom_img_descr
+        1 -> R.string.stella_img_descr
+        2 -> R.string.musa_img_descr
+        else -> R.string.tecna_img_descr
+    }
+
+    var title = when (status) {
+        0 -> R.string.bloom_img_descr
+        1 -> R.string.stella_img_descr
+        2 -> R.string.musa_img_descr
+        else -> R.string.tecna_img_descr
+    }
+
+    var descr = when (status) {
+        0 -> R.string.bloom_descr
+        1 -> R.string.stella_descr
+        2 -> R.string.musa_descr
+        else -> R.string.tecna_descr
+    }
+
+
 
     Column (horizontalAlignment = Alignment.CenterHorizontally){
         Spacer(modifier = Modifier.height(40.dp))
@@ -94,14 +128,14 @@ fun Gallery(modifier : Modifier = Modifier) {
 
         Column (horizontalAlignment = Alignment.CenterHorizontally){
             Text(
-                text = "Bloom",
+                text = stringResource(title),
                 textAlign = TextAlign.Center,
                 fontWeight = FontWeight.Bold
             )
 
             Text(
                 modifier = Modifier.padding(16.dp),
-                text = "La main character",
+                text = stringResource(descr),
                 textAlign = TextAlign.Justify)
         }
         
@@ -111,19 +145,27 @@ fun Gallery(modifier : Modifier = Modifier) {
             .fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween) {
 
-            Spacer(modifier = Modifier.width(1.dp))
+            Spacer(modifier = Modifier.width(16.dp))
             GalleryButton(
                 modifier = Modifier
-                    .width(120.dp)
+                    .width(104.dp)
                     .height(40.dp),
-                text = "Previous")
+                text = "Previous",
+                onClick = {when (status) {
+                    in 1..3 -> status--
+                    else -> status = 3
+                } })
 
             GalleryButton(
                 modifier = Modifier
-                    .width(120.dp)
+                    .width(104.dp)
                     .height(40.dp),
-                text = "Next")
-            Spacer(modifier = Modifier.width(1.dp))
+                text = "Next",
+                onClick = {when (status){
+                    in 0..2 -> status++
+                    else -> status = 0
+                } })
+            Spacer(modifier = Modifier.width(16.dp))
 
             }
         }
@@ -134,16 +176,13 @@ fun Gallery(modifier : Modifier = Modifier) {
 fun GalleryButton (
     modifier: Modifier = Modifier,
     onClick: () -> Unit = { /*TODO*/ },
-    text: String = "xd",
-    textModifier: Modifier = Modifier,)
+    text: String = "xd", )
 {
     Button(
         onClick = onClick,
         colors = ButtonDefaults.buttonColors(
             containerColor = Color(0xFFFFC2C2)),
-        modifier = Modifier
-            .width(120.dp)
-            .height(40.dp),
+        modifier = modifier,
         elevation = ButtonDefaults.buttonElevation(defaultElevation = 4.dp))
     {
         Text(text, color = Color.Black,)
