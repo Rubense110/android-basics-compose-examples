@@ -19,6 +19,7 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.Icon
 import androidx.compose.material.icons.filled.ExpandMore
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -73,11 +74,12 @@ fun CountryCard(
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     MapButtonOptions(
-                        onClickf = {diploMap = false},
-                        onClickt = {diploMap = true}
+                        diploMap = diploMap,
+                        onClickf = { diploMap = false },
+                        onClickt = { diploMap = true }
                     )
                     MapImage(img)
-                    CountryDescriptionText()
+                    CountryDescriptionText(country.countryDescRes)
                 }
             }
         }
@@ -86,6 +88,7 @@ fun CountryCard(
 
 @Composable
 fun MapButtonOptions(
+    diploMap: Boolean,
     modifier: Modifier = Modifier,
     onClickf: () -> Unit,
     onClickt: () -> Unit
@@ -96,6 +99,12 @@ fun MapButtonOptions(
         horizontalArrangement = Arrangement.SpaceEvenly
     ) {
         Button(
+            colors = if (!diploMap){
+                 ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.onSecondaryContainer)
+            } else {
+                 ButtonDefaults.buttonColors()
+                   },
+
             modifier = Modifier
                 .size(112.dp, 24.dp)
                 .padding(horizontal = 8.dp),
@@ -110,6 +119,11 @@ fun MapButtonOptions(
         }
 
         Button(
+            colors = if (diploMap){
+                ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.onSecondaryContainer)
+            } else {
+                ButtonDefaults.buttonColors()
+            },
             modifier = Modifier
                 .size(112.dp, 24.dp)
                 .padding(horizontal = 8.dp),
@@ -126,16 +140,18 @@ fun MapButtonOptions(
 }
 
 @Composable
-fun CountryDescriptionText(modifier: Modifier = Modifier) {
+fun CountryDescriptionText(
+    @StringRes countryDescRes: Int,
+    modifier: Modifier = Modifier) {
     val scroll = rememberScrollState(0)
     Text(
-        text = stringResource(R.string.aragon_desc),
+        text = stringResource(countryDescRes),
         style = MaterialTheme.typography.bodySmall,
         textAlign = TextAlign.Justify,
         modifier = modifier
             .padding(horizontal = 24.dp)
             .padding(bottom = 32.dp)
-            .size(352.dp,160.dp)
+            .size(352.dp, 160.dp)
             .verticalScroll(scroll)
         )
 }
@@ -202,6 +218,6 @@ fun CountryShield(
 @Composable
 fun CountryCardPreview() {
     App30tips_codelabTheme {
-        CountryCard(country = CountriesDataSource.aragon)
+        CountryCard(country = CountriesDataSource.countries[0])
     }
 }

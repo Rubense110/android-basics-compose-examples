@@ -10,7 +10,7 @@ import com.example.app30tips_codelab.R
 
 // Set of Material typography styles to start with
 val Merryweather = FontFamily(
-    Font(R.font.merriweather_italic, FontWeight.Light),
+    Font(R.font.merriweather_italic, FontWeight.SemiBold),
     Font(R.font.merriweather_regular, FontWeight.Normal),
     Font(R.font.merriweather_bold, FontWeight.Bold)
 )
@@ -28,7 +28,7 @@ val Typography = Typography(
     bodySmall = TextStyle(
         fontFamily = Merryweather,
         fontWeight = FontWeight.Light,
-        fontSize = 10.sp,
+        fontSize = 14.sp,
         lineHeight = 16.sp,
         letterSpacing = 0.3.sp
     ),
@@ -37,7 +37,7 @@ val Typography = Typography(
             fontFamily = Merryweather,
             fontWeight = FontWeight.SemiBold,
             fontSize = 14.sp,
-            lineHeight = 20.sp,
+            lineHeight = 18.sp,
             letterSpacing = 0.4.sp
     ),
 
