@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">App30tips_codelab</string>
+    <string name="expand_button_content_description">See more or less information about a dog.</string>
+
+    <string name="aragon_name">Kingdom of Aragon</string>
+    <string name="aragon_desc">The Crown of Aragon emerged as a major power from humble origins as a mere County in the Pyrenees. After winning its independence from the now much reduced Kingdom of Navarra, Aragon entered into a union with the County Barcelona. Its monarchs were eager participants in the Reconquista, the campaign of conquest against the Muslim states of Iberia, which saw Aragon expand to its current southerly extent and add the Kingdom of Valencia to the composite Crown.\n"
+                "The fates of Aragon and Navarra are once again tied together; the King of Navarra is also the heir to the Aragonese throne. Should King Joan manage to survive his father Alfons V while preserving the independence of Navarra, the two nations will be joined in a personal union under one monarch.\n"
+                "On the subject of dynastic unions, the Kingdom of Naples in southern Italy is also subject to the Crown of Aragon. Aragon rules Sicily directly, but Naples has yet to be fully integrated into the Crown following King Afonso’s conquest of the kingdom in 1442. The former King of Naples, René of Anjou, has fled to Provence where he continues to insist upon his claim not only on Naples but also on Aragon itself as well as Jerusalem."
+                
+                "Aragon’s relationship with its powerful neighbour Castile is difficult to pin down. Though these nations share a dynasty, the feuding House of Trastámara is rarely at peace with itself. At times it seems as though peace may be possible and that the two Crowns could be united into one, while at other times it seems that the kingdoms are destined to struggle against one another for eternity as bitter rivals."
+
+                "Beyond dynastic matters, Aragon is a nation deeply concerned with dominating trade in the Mediterranean. Aragon’s Consulate of the Sea aims to regulate and administrate all trade in the region, while Catalan and Valencian merchants struggle against merchants from Genoa and Tuscany to control the flow of profit. Aragon also has designs upon the elusive silk trade. Silk has traditionally seen almost no production in Europe; its secrets are closely guarded but now seem to be within reach.</string>
+    <string name="diplomatic_map">Diplomatic</string>
+    <string name="political_map">Political</string>
 </resources>

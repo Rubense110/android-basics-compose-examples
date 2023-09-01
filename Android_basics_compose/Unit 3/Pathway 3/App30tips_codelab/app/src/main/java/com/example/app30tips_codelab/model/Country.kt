@@ -10,3 +10,5 @@ data class Country(
     @DrawableRes val countryMapRes: Int,
     @DrawableRes val countryDipMapRes: Int,
 )
+
+
